@@ -1,0 +1,42 @@
+[
+    {
+        "model": "consultant.Appointment",
+        "pk": 1,
+        "fields": {
+            "consultant_id": 1,
+            "patient_id": 2,
+            "comment": "SCHEDULED",
+            "date_appointment": "2023-07-17"
+        }
+    },
+    {
+        "model": "consultant.Appointment",
+        "pk": 2,
+        "fields": {
+            "consultant_id": 2,
+            "patient_id": 3,
+            "comment": "SCHEDULED",
+            "date_appointment": "2023-07-17"
+        }
+    },
+    {
+        "model": "consultant.Appointment",
+        "pk": 3,
+        "fields": {
+            "consultant_id": 3,
+            "patient_id": 4,
+            "comment": "COMPLETED",
+            "date_appointment": "2023-07-17"
+        }
+    },
+    {
+        "model": "consultant.Appointment",
+        "pk": 4,
+        "fields": {
+            "consultant_id": 4,
+            "patient_id": 1,
+            "comment": "COMPLETED",
+            "date_appointment": "2023-07-17"
+        }
+    }
+]

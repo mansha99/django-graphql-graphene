@@ -1,0 +1,34 @@
+[
+    {
+      "model": "consultant.Patient",
+      "pk": 1,
+      "fields": {
+        "name": "Mohan",
+        "gender": "MALE"
+      }
+    },
+    {
+      "model": "consultant.Patient",
+      "pk": 2,
+      "fields": {
+        "name": "Mangesh",
+        "gender": "MALE"
+      }
+    },
+    {
+      "model": "consultant.Patient",
+      "pk": 3,
+      "fields": {
+        "name": "Manoj",
+        "gender": "FEMALE"
+      }
+    },
+    {
+      "model": "consultant.Patient",
+      "pk": 4,
+      "fields": {
+        "name": "Manas",
+        "gender": "FEMALE"
+      }
+    }
+  ]

@@ -1,0 +1,68 @@
+import graphene
+from django.db.models import Q
+from graphene_django import DjangoObjectType
+from .models import Patient, Consultant,Appointment
+
+# first define all types
+class PatientType(DjangoObjectType):
+    class Meta:
+        model = Patient
+        fields = ("id", "name", "gender")
+
+class ConsultantType(DjangoObjectType):
+    class Meta:
+        model = Consultant
+        fields = ("id", "name", "specialization")
+
+class AppointmentType(DjangoObjectType):
+    class Meta:
+        model = Appointment
+        fields = ("date_appointment", "consultant", "patient","comment")
+        
+"""
+{
+  hello 
+}
+query {
+  allAppointments {
+   consultant{
+    id
+    name
+  }
+    patient{
+      id
+      name
+      gender
+    }
+    dateAppointment
+  }
+}
+query {
+  allAppointments(search:"Ma") {
+   consultant{
+    id
+    name
+  }
+    patient{
+      id
+      name
+      gender
+    }
+    comment
+    dateAppointment
+  }
+}
+"""
+class Query(graphene.ObjectType):
+    hello = graphene.String(default_value="Hi!")
+    all_appointments=graphene.List(AppointmentType, search=graphene.String())
+    def resolve_all_appointments(self, info, search=None, **kwargs):
+        if search:
+            filter = (
+                Q(consultant__name__icontains=search)|
+                Q(patient__name__icontains=search)
+            )
+            return Appointment.objects.filter(filter)
+        return Appointment.objects.all()
+
+schema = graphene.Schema(query=Query)
