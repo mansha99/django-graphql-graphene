@@ -26,8 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "graphene_django",
-    "consultant.apps.ConsultantConfig"
-
+    "consultant.apps.ConsultantConfig",
 ]
 
 MIDDLEWARE = [
@@ -118,3 +117,5 @@ STATIC_URL = '/static/'
 GRAPHENE = {
     "SCHEMA": "consultant.schema.schema"
 }
+
+
